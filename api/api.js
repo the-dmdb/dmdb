@@ -3,12 +3,25 @@ dotenv.load()
 
 var mdb = require('moviedb')(process.env.TMDB_KEY)
 
-mdb.searchMovie({query: 'Alien' }, function(err, res){
-  if (err) throw error
-  else {
-    console.log("Title is:", res.results[0].title)
-    console.log("Rating is:", res.results[0].vote_average)
-    console.log("Synopsis is:", res.results[0].overview)
-    console.log("Release date:", res.results[0].release_date)
-  }
+function movieData (searchTerm, callback) {
+  mdb.searchMovie({query: searchTerm }, function(err, res){
+    if (err) throw error
+    else {
+      var title = res.results[0].title
+      var rating = res.results[0].vote_average
+      var synopsis = res.results[0].overview
+      var release_date = res.results[0].release_date
+      var movieObject = {
+        title,
+        rating,
+        synopsis,
+        release_date
+      }
+      callback(null, movieObject)
+    }
+  })
+}
+
+movieData("Alien", function(err, res) {
+  console.log(res);
 })
