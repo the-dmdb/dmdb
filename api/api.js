@@ -3,6 +3,8 @@ dotenv.load()
 
 var mdb = require('moviedb')(process.env.TMDB_KEY)
 
+module.exports = movieData
+
 function movieData (searchTerm, callback) {
   mdb.searchMovie({query: searchTerm }, function(err, res){
     if (err) throw error
@@ -23,5 +25,9 @@ function movieData (searchTerm, callback) {
 }
 
 movieData("Alien", function(err, res) {
+  console.log(res);
+})
+
+movieData("Monsters Inc", function(err, res) {
   console.log(res);
 })
