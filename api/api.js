@@ -29,11 +29,11 @@ function movieData (searchTerm, callback) {
     }
   })
 }
-
-movieData("Alien", function(err, res) {
-  console.log(res)
-})
-
-movieData("The Fifth Element", function(err, res) {
-  console.log(res)
-})
+//
+// movieData("Alien", function(err, res) {
+//   console.log(res)
+// })
+//
+// movieData("The Fifth Element", function(err, res) {
+//   console.log(res)
+// })

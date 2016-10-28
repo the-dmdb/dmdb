@@ -10,8 +10,6 @@ var movie = require('./routes/movie');
 
 var app = express()
 
-var movieData = require('./api/api')
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'hbs')
@@ -59,7 +57,3 @@ app.use(function (err, req, res, next) {
 })
 
 module.exports = app
-
-movieData('Monsters Inc', function (err, res) {
-  console.log('this is coming from the app!', res)
-})
