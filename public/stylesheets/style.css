@@ -12,10 +12,23 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: nowrap;
+  align-items: center;
 }
-#search{
-  z-index: 3;
-  margin: 50 50 50 50;
+#searchBoxForm{
+  height: 40px;
+
+}
+#searchBar{
+  height: inherit;
+  width: 300px;
+}
+#searchButton{
+  height: inherit;
+  width: 100px;
 }
 
 a {
