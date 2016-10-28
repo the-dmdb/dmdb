@@ -5,15 +5,13 @@ var movieData = require('../api/api')
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  movieData('Monsters Inc', function (err, movieDetails) {
-    // function (err, res) {
+  console.log("The movie searched was", req.query.keyword)
+  movieData(req.query.keyword, function (err, movieDetails) {
     if (err) throw err
     else {
-      console.log(movieDetails);
-      res.render('displayMovie', movieDetails );
+      res.render('displayMovie', movieDetails )
     }
-    // }
   })
-});
+})
 
-module.exports = router;
+module.exports = router
