@@ -9,6 +9,10 @@ function movieData (searchTerm, callback) {
   mdb.searchMovie({query: searchTerm }, function(err, res){
     if (err) throw error
     else {
+      // console.log(Object.keys(res.results[0]));
+
+      var image = `https://image.tmdb.org/t/p/w300_and_h450_bestv2${res.results[0].poster_path}`
+      var backdrop = `https://image.tmdb.org/t/p/original${res.results[0].backdrop_path}`
       var title = res.results[0].title
       var rating = res.results[0].vote_average
       var synopsis = res.results[0].overview
@@ -17,7 +21,9 @@ function movieData (searchTerm, callback) {
         title,
         rating,
         synopsis,
-        release_date
+        release_date,
+        image,
+        backdrop
       }
       callback(null, movieObject)
     }
@@ -25,9 +31,9 @@ function movieData (searchTerm, callback) {
 }
 
 movieData("Alien", function(err, res) {
-  console.log(res);
+  console.log(res)
 })
 
-movieData("Monsters Inc", function(err, res) {
-  console.log(res);
+movieData("The Fifth Element", function(err, res) {
+  console.log(res)
 })
